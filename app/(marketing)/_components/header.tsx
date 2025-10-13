@@ -5,20 +5,29 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import {
+  LoginLink,
+  LogoutLink,
+  RegisterLink,
+  useKindeBrowserClient,
+} from "@kinde-oss/kinde-auth-nextjs";
 import { Menu, X } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { name: "Features", href: "#link" },
-  { name: "Pricing", href: "#link" },
-  { name: "About", href: "#link" },
+  { name: "Features", href: "#features" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "About", href: "#about" },
 ];
 
 export const HeroHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const { getUser, isLoading } = useKindeBrowserClient();
+  const user = getUser();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -93,36 +102,69 @@ export const HeroHeader = () => {
                   ))}
                 </ul>
               </div>
-              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button
-                  asChild
-                  variant="outline"
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="#">
-                    <span>Login</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled && "lg:hidden")}
-                >
-                  <Link href="#">
-                    <span>Sign Up</span>
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="sm"
-                  className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
-                >
-                  <Link href="#">
-                    <span>Get Started</span>
-                  </Link>
-                </Button>
-              </div>
+
+              {isLoading ? null : (
+                <>
+                  <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                    {user ? (
+                      <>
+                        <Link
+                          className={buttonVariants({
+                            size: "sm",
+                          })}
+                          href={"/workspace"}
+                        >
+                          <span>Dashbaord</span>
+                        </Link>
+
+                        <LogoutLink
+                          className={buttonVariants({
+                            variant: "destructive",
+                            size: "sm",
+                          })}
+                        >
+                          Logout
+                        </LogoutLink>
+                      </>
+                    ) : (
+                      <>
+                        <LoginLink
+                          className={buttonVariants({
+                            variant: "outline",
+                            size: "sm",
+                            className: cn(isScrolled && "lg:hidden"),
+                          })}
+                        >
+                          Login
+                        </LoginLink>
+
+                        <RegisterLink
+                          className={buttonVariants({
+                            size: "sm",
+                            className: cn(isScrolled && "lg:hidden"),
+                          })}
+                        >
+                          Register
+                        </RegisterLink>
+
+                        <div
+                          className={cn(
+                            isScrolled ? "lg:inline-flex" : "hidden",
+                          )}
+                        >
+                          <RegisterLink
+                            className={buttonVariants({
+                              size: "sm",
+                            })}
+                          >
+                            Get Started
+                          </RegisterLink>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </div>
